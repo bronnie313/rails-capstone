@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_133426) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_18_165710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "icome_transactions", force: :cascade do |t|
+    t.string "name"
+    t.decimal "amount"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_icome_transactions_on_user_id"
+  end
+
+  create_table "icome_transactions_categories", id: false, force: :cascade do |t|
+    t.bigint "icome_transaction_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_icome_transactions_categories_on_category_id"
+    t.index ["icome_transaction_id"], name: "index_icome_transactions_categories_on_icome_transaction_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,4 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_133426) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "icome_transactions", "users"
+  add_foreign_key "icome_transactions_categories", "categories"
+  add_foreign_key "icome_transactions_categories", "icome_transactions"
 end
