@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "categories#index"
+  # root "categories#index"
+  # config/routes.rb
+  root 'splash#index'
+  get '/redirect_to_login', to: 'splash#redirect_to_login', as: :redirect_to_login
+
 end

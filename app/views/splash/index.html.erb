@@ -1,0 +1,9 @@
+<div class="splash">
+  <h1>Welcome to My Budget App</h1>
+  <p>Loading...</p>
+</div>
+<script>
+  setTimeout(function() {
+    window.location.href = '<%= redirect_to_login_path %>'; // Redirect to the login page
+  }, 3000); 
+</script>
