@@ -1,64 +1,40 @@
 class IcomeTransactionsController < ApplicationController
-  before_action :set_icome_transaction, only: %i[show edit update destroy]
+  before_action :set_icome_transaction, :set_category, only: %i[show edit update destroy]
 
-  # GET /icome_transactions or /icome_transactions.json
   def index
-    @icome_transactions = IcomeTransaction.all
+    @category = Category.find(params[:category_id])
+    @icome_transactions = @category.icome_transactions
   end
 
-  # GET /icome_transactions/1 or /icome_transactions/1.json
   def show; end
 
-  # GET /icome_transactions/new
   def new
-    @icome_transaction = IcomeTransaction.new
+    @category = Category.find(params[:category_id])
+    @icome_transaction = @category.icome_transactions.build
   end
 
-  # GET /icome_transactions/1/edit
-  def edit; end
+  def create
+    @icome_transaction = IcomeTransaction.new(icome_transaction_params)
+    @icome_transaction.user = current_user
 
-  # POST /icome_transactions or /icome_transactions.json
-def create
-  @icome_transaction = IcomeTransaction.new(icome_transaction_params)
-  @icome_transaction.user = current_user
+    category_id = params[:icome_transaction][:category_id]
 
-  # Retrieve the selected Category from the form input
-  category_id = params[:icome_transaction][:category_id]
-
-  respond_to do |format|
-    if @icome_transaction.save
-      # Associate the selected Category with the newly created IcomeTransaction
-      if category_id.present?
-        category = Category.find(category_id)
-        @icome_transaction.categories << category
-      end
-
-      format.html { redirect_to icome_transactions_path, notice: 'Icome transaction was successfully created.' }
-      format.json { render :show, status: :created, location: @icome_transaction }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @icome_transaction.errors, status: :unprocessable_entity }
-    end
-  end
-end
-
-
-  # PATCH/PUT /icome_transactions/1 or /icome_transactions/1.json
-  def update
     respond_to do |format|
-      if @icome_transaction.update(icome_transaction_params)
-        format.html do
-          redirect_to icome_transaction_url(@icome_transaction), notice: 'Icome transaction was successfully updated.'
+      if @icome_transaction.save
+        if category_id.present?
+          category = Category.find(category_id)
+          @icome_transaction.categories << category
         end
-        format.json { render :show, status: :ok, location: @icome_transaction }
+
+        format.html { redirect_to category_icome_transactions_path(category_id), notice: 'Income transaction was successfully created.' }
+        format.json { render :show, status: :created, location: @icome_transaction }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @icome_transaction.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /icome_transactions/1 or /icome_transactions/1.json
   def destroy
     @icome_transaction.destroy
 
@@ -70,12 +46,10 @@ end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_icome_transaction
     @icome_transaction = IcomeTransaction.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def icome_transaction_params
     params.require(:icome_transaction).permit(:name, :amount, :user_id)
   end

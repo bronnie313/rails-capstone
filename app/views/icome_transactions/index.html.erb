@@ -1,14 +1,19 @@
+<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="nav-list">
+    <a href="<%= categories_path %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i> 
+    </a>  
+    <h1>transactions</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
+  </div>
+</nav>
 <p style="color: green"><%= notice %></p>
-
-<h1>Icome transactions</h1>
 
 <div id="icome_transactions">
   <% @icome_transactions.each do |icome_transaction| %>
     <%= render icome_transaction %>
-    <p>
-      <%= link_to "Show this icome transaction", icome_transaction %>
-    </p>
+    <%= button_to "Destroy this icome transaction", @icome_transaction, method: :delete %>
   <% end %>
 </div>
 
-<%= link_to "New icome transaction", new_icome_transaction_path %>
+<%= link_to "New icome transaction", new_category_icome_transaction_path %>

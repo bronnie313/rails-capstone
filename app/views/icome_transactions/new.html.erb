@@ -1,9 +1,11 @@
-<h1>New icome transaction</h1>
-
+<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="nav-list">
+    <a href="<%= category_icome_transactions_path %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i> 
+    </a>  
+    <h1>New transactionansaction</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
+  </div>
+</nav>
 <%= render "form", icome_transaction: @icome_transaction %>
 
-<br>
-
-<div>
-  <%= link_to "Back to icome transactions", icome_transactions_path %>
-</div>
