@@ -3,8 +3,7 @@ class SplashController < ApplicationController
         
     end
 
-    def redirect_to_login
-        
+    def redirect_to_login 
         if user_signed_in?
             redirect_to categories_path
         else

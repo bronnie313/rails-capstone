@@ -1,10 +1,10 @@
-<nav  id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
   <div class="nav-list">
      <i class="fa-solid fa-bars"></i>
     <h1>Categories</h1>
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
   </div>
-</nav
+</nav>
 <p style="color: green"><%= notice %></p>
 <div id="categories">
   <% @categories.each do |category| %>

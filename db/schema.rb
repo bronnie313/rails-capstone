@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_075725) do
     t.index ["user_id"], name: "index_icome_transactions_on_user_id"
   end
 
-  create_table "icome_transactions_categories", id: false, force: :cascade do |t|
+  create_table "icome_transactions_categories", force: :cascade do |t|
     t.bigint "icome_transaction_id", null: false
     t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_icome_transactions_categories_on_category_id"

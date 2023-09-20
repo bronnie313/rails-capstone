@@ -18,21 +18,30 @@ class IcomeTransactionsController < ApplicationController
   def edit; end
 
   # POST /icome_transactions or /icome_transactions.json
-  def create
-    @icome_transaction = IcomeTransaction.new(icome_transaction_params)
+def create
+  @icome_transaction = IcomeTransaction.new(icome_transaction_params)
+  @icome_transaction.user = current_user
 
-    respond_to do |format|
-      if @icome_transaction.save
-        format.html do
-          redirect_to icome_transaction_url(@icome_transaction), notice: 'Icome transaction was successfully created.'
-        end
-        format.json { render :show, status: :created, location: @icome_transaction }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @icome_transaction.errors, status: :unprocessable_entity }
+  # Retrieve the selected Category from the form input
+  category_id = params[:icome_transaction][:category_id]
+
+  respond_to do |format|
+    if @icome_transaction.save
+      # Associate the selected Category with the newly created IcomeTransaction
+      if category_id.present?
+        category = Category.find(category_id)
+        @icome_transaction.categories << category
       end
+
+      format.html { redirect_to icome_transactions_path, notice: 'Icome transaction was successfully created.' }
+      format.json { render :show, status: :created, location: @icome_transaction }
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @icome_transaction.errors, status: :unprocessable_entity }
     end
   end
+end
+
 
   # PATCH/PUT /icome_transactions/1 or /icome_transactions/1.json
   def update
