@@ -1,8 +1,9 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <%= image_tag(category.icon, alt: 'Category Icon') if category.icon.present?  %>
-  </p> 
-
+   <p>
+    <% if category.icon.present? %>
+        <img src="<%= category.icon %>" alt="Icon">
+    <% end %>
+  </p>
   <p>
     <strong>Name:</strong>
     <%= category.name %>

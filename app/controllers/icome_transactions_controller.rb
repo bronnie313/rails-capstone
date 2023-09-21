@@ -26,7 +26,9 @@ class IcomeTransactionsController < ApplicationController
           @icome_transaction.categories << category
         end
 
-        format.html { redirect_to category_icome_transactions_path(category_id), notice: 'Income transaction was successfully created.' }
+        format.html do
+          redirect_to category_icome_transactions_path(category), notice: 'Income transaction was successfully created.'
+        end
         format.json { render :show, status: :created, location: @icome_transaction }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +42,9 @@ class IcomeTransactionsController < ApplicationController
     @icome_transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to category_icome_transactions_path, notice: 'Income transaction was successfully destroyed.' }
+      format.html do
+        redirect_to category_icome_transactions_path, notice: 'Income transaction was successfully destroyed.'
+      end
       format.json { head :no_content }
     end
   end
