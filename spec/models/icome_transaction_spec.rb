@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe IcomeTransaction, type: :model do
   before do
-    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123456)
+    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123_456)
     @category = @user.categories.create(name: 'gym', icon: 'gym.jpg')
     @icome_transaction = @category.icome_transactions.create(name: 'gloves', amount: 120, user_id: @user.id)
   end
