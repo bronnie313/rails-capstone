@@ -1,5 +1,5 @@
 class IcomeTransactionsController < ApplicationController
-  before_action :set_icome_transaction, :set_category, only: %i[show edit update destroy]
+  before_action :set_icome_transaction, only: %i[show edit update destroy]
 
   def index
     @category = Category.find(params[:category_id])
@@ -36,10 +36,11 @@ class IcomeTransactionsController < ApplicationController
   end
 
   def destroy
+    @icome_transaction.icome_transactions_categories.destroy_all
     @icome_transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to icome_transactions_url, notice: 'Income transaction was successfully destroyed.' }
+      format.html { redirect_to category_icome_transactions_path, notice: 'Income transaction was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

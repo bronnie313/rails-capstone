@@ -12,7 +12,7 @@
 <div id="icome_transactions">
   <% @icome_transactions.each do |icome_transaction| %>
     <%= render icome_transaction %>
-    <%= button_to "Destroy this icome transaction", @icome_transaction, method: :delete %>
+    <%= button_to "Destroy this icome transaction",[@category, icome_transaction], method: :delete %>
   <% end %>
 </div>
 

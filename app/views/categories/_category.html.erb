@@ -10,8 +10,8 @@
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= category.user_id %>
+    Total Income for this Category:
+    <%= category.icome_transactions.sum(:amount) %>
   </p>
 
 </div>
