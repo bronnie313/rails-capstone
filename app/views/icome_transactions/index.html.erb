@@ -1,0 +1,27 @@
+<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="nav-list">
+    <a href="<%= categories_path %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i> 
+    </a>  
+    <h1>transactions</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
+  </div>
+</nav>
+<div>
+  <strong>
+  <%= @category.name %>
+  </strong>
+  <strong>
+  $ <%= @category.icome_transactions.sum(:amount)%>
+  </strong>
+</div>
+<p style="color: green"><%= notice %></p>
+
+<div id="icome_transactions">
+  <% @icome_transactions.each do |icome_transaction| %>
+    <%= render icome_transaction %>
+    <%= button_to "Destroy this icome transaction",[@category, icome_transaction], method: :delete %>
+  <% end %>
+</div>
+
+<%= link_to "New icome transaction", new_category_icome_transaction_path %>

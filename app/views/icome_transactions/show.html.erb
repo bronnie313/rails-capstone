@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @icome_transaction %>
+
+<div>
+  <%= link_to "Back to icome transactions", icome_transactions_path %>
+
+  <%= button_to "Destroy this icome transaction", @icome_transaction, method: :delete %>
+</div>
