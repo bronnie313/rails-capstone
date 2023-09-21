@@ -7,6 +7,14 @@
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
   </div>
 </nav>
+<div>
+  <strong>
+  <%= @category.name %>
+  </strong>
+  <strong>
+  $ <%= @category.icome_transactions.sum(:amount)%>
+  </strong>
+</div>
 <p style="color: green"><%= notice %></p>
 
 <div id="icome_transactions">
