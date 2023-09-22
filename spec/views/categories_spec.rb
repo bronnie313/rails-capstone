@@ -5,7 +5,7 @@ RSpec.describe 'category/index', type: :view do
   include Capybara::DSL
 
   before do
-    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123456)
+    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123_456)
     sign_in @user
   end
 
@@ -20,8 +20,8 @@ RSpec.describe 'category/index', type: :view do
     end
 
     it 'display category icons' do
-        visit categories_path
-        expect(page).to have_css("img[src='#{@category.icon}']")
-      end
+      visit categories_path
+      expect(page).to have_css("img[src='#{@category.icon}']")
+    end
   end
 end

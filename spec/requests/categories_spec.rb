@@ -4,7 +4,7 @@ RSpec.describe 'Categories', type: :request do
   include Devise::Test::IntegrationHelpers
 
   before do
-    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123456)
+    @user = User.create(name: 'ronnie', email: 'ronnie@gmail.com', password: 123_456)
     @user.save
     sign_in @user
   end
@@ -26,7 +26,7 @@ RSpec.describe 'Categories', type: :request do
       expect(response.body).to include('Categories')
     end
   end
-  
+
   describe 'POST /new' do
     before do
       @category = @user.categories.create(name: 'gym', icon: 'gym.jpg')
