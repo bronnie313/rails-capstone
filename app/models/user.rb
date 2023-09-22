@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :icome_transaction
+
+  validates :name, presence: true
 end
