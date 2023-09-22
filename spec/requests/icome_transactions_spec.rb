@@ -8,6 +8,21 @@ RSpec.describe 'Expense', type: :request do
     sign_in @user
   end
 
+  describe 'GET /transaction_entries' do
+    before do
+      @category = @user.categories.create(name: 'gym', icon: 'gym.jpg')
+      get category_icome_transactions_path(category_id: @category.id)
+    end
+
+    it 'responds with success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'respond with correct template' do
+      expect(response).to render_template(:index)
+    end
+  end
+
   describe 'Get /new' do
     before do
       @category = @user.categories.create(name: 'gym', icon: 'gym.jpg')
