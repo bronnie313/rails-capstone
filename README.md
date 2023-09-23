@@ -1,4 +1,10 @@
 <a name="readme-top"></a>
+<div align="center">
+  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <img src="https://cdn1.iconfinder.com/data/icons/doodle-business-shop-finance-set-1/91/Doodle_Business_-_Shop_-_Finance_11-512.png" alt="logo" width="140"  height="auto" />
+  <br/>
+    Budget App
+</div>
 
 <!--
 HOW TO USE:
@@ -21,12 +27,6 @@ REQUIRED SECTIONS:
 
 After you're finished please remove all the comments and instructions!
 -->
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="https://cdn1.iconfinder.com/data/icons/doodle-business-shop-finance-set-1/91/Doodle_Business_-_Shop_-_Finance_11-512.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  # Budget App
 
 
 <!-- TABLE OF CONTENTS -->
@@ -55,7 +55,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [BLOG-APP] <a name="about-project"></a>
+# 📖 [Budget-APP] <a name="about-project"></a>
 
 This is a budget mobile web application where you can manage your budget: you have a list of categories and also you have a list of transactions associated with a category, so that you can see how much money you spent and on a category of your choice
 
@@ -163,11 +163,9 @@ Example command:
 ```sh
   bin/rails test test/models/article_test.rb
 ```
---->
+### Deployment
 
-<!-- ### Deployment
-
-You can deploy this project using: -->
+You can deploy this project using: 
 
 <!--
 Example:
