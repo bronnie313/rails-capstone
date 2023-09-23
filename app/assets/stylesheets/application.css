@@ -109,7 +109,7 @@ img {
 }
 
 .single-transaction {
-  justify-content: space-around;
+  justify-content: space-between;
     border: 0.5px solid lightgray;
     padding: 1em;
     background: white;
@@ -120,5 +120,28 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
+}
+
+.splash {
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  color: #3878c2;
+}
+
+.splash-img {
+ width: 8rem; 
+}
+
+.login {
+  margin: 1rem;
+  padding: 4px 8px;
+  background: white;
+  border: 0.1px solid black;
+  border-radius: 3px;
 }
