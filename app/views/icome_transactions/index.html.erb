@@ -19,8 +19,10 @@
 
 <div id="icome_transactions">
   <% @icome_transactions.each do |icome_transaction| %>
+    <div class="d-flex align-items-center single-transaction">
     <%= render icome_transaction %>
-    <%= button_to "Destroy this icome transaction",[@category, icome_transaction], method: :delete %>
+    <%= button_to "Delete",[@category, icome_transaction], method: :delete, class: 'btn btn-outline-dark btn-sm float-start' %>
+    </div>
   <% end %>
 </div>
 <div class="bottom-btn">

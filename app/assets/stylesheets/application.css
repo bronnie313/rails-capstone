@@ -57,11 +57,8 @@ img {
   display: flex;
   justify-content: center;
   margin: 1rem 4rem;
-  color: white;
-  border: 1px solid gray;
-  background: #60b524;
+  color: black;
   padding: 4px;
-  border-radius: 21px;
 }
 
 .bottom-btn {
@@ -109,4 +106,19 @@ img {
   justify-content: space-between;
   padding: 0.5rem 1rem;
   background: white;
+}
+
+.single-transaction {
+  justify-content: space-around;
+    border: 0.5px solid lightgray;
+    padding: 1em;
+    background: white;
+    margin: 1em;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
 }
