@@ -1,13 +1,13 @@
-<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav id="nav">
   <div class="nav-list">
     <a href="<%= categories_path %>" class="back-btn">
       <i class="fa-solid fa-chevron-left"></i> 
     </a>  
-    <h1>transactions</h1>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
+    <h1 class="title">transactions</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm float-start logout' %>
   </div>
 </nav>
-<div>
+<div class="total-transaction-income">
   <strong>
   <%= @category.name %>
   </strong>
@@ -15,13 +15,16 @@
   $ <%= @category.icome_transactions.sum(:amount)%>
   </strong>
 </div>
-<p style="color: green"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 
 <div id="icome_transactions">
   <% @icome_transactions.each do |icome_transaction| %>
+    <div class="d-flex align-items-center single-transaction">
     <%= render icome_transaction %>
-    <%= button_to "Destroy this icome transaction",[@category, icome_transaction], method: :delete %>
+    <%= button_to "Delete",[@category, icome_transaction], method: :delete, class: 'btn btn-outline-dark btn-sm float-start' %>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New icome transaction", new_category_icome_transaction_path %>
+<div class="bottom-btn">
+<%= link_to "New transaction", new_category_icome_transaction_path, class: 'category-btn' %>
+</div>

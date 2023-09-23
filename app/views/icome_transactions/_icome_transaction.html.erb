@@ -1,12 +1,14 @@
-<div id="<%= dom_id icome_transaction %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id icome_transaction %>", class="transaction">
+  <p class="name ">
+    <strong>
     <%= icome_transaction.name %>
+    </strong>
   </p>
 
-  <p>
-    <strong>Amount:</strong>
+  <p class="income">
+    <strong>$ 
     <%= icome_transaction.amount %>
+    </strong>
   </p>
 
 </div>
