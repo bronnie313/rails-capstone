@@ -18,7 +18,7 @@
 <p class="notice"><%= notice %></p>
 
 <div id="icome_transactions">
-  <% @icome_transactions.each do |icome_transaction| %>
+  <% @icome_transactions.sort_by{ |icome_transaction|icome_transaction.created_at}.reverse.each do |icome_transaction| %>
     <div class="d-flex align-items-center single-transaction">
     <%= render icome_transaction %>
     <%= button_to "Delete",[@category, icome_transaction], method: :delete, class: 'btn btn-outline-dark btn-sm float-start' %>
@@ -28,3 +28,5 @@
 <div class="bottom-btn">
 <%= link_to "New transaction", new_category_icome_transaction_path, class: 'category-btn' %>
 </div>
+
+  
