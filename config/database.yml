@@ -87,7 +87,4 @@ test:
 #
 production:
   <<: *default
-  database: rails_capstone_production
-  username: postgres
-  # password: <%= ENV["RAILS_CAPSTONE_DATABASE_PASSWORD"] %>
-  password: ronniebisaso
+  url: <%= ENV['DATABASE_URL'] %>
