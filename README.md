@@ -93,7 +93,7 @@ This is a budget mobile web application where you can manage your budget: you ha
 
 
 - [Live Demo Link](https://budgetapp-n091.onrender.com)
-- presentation link is here https://drive.google.com/file/d/1KUzcz943VkaH2B4pcjZt0kOgIzgs8hCL/view?usp=drive_link
+- presentation link is here https://drive.google.com/file/d/1KUzcz943VkaH2B4pcjZt0kOgIzgs8hCL/view?usp=sharing
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
