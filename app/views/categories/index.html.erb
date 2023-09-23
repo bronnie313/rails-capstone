@@ -1,17 +1,18 @@
-<nav id="nav" class="navbar navbar-expand-sm bg-primary navbar-dark">
+<nav id="nav">
   <div class="nav-list">
      <i class="fa-solid fa-bars back-btn"></i>
-    <h1>Categories</h1>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %></br>
+    <h1 class="title">Categories</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm float-start logout' %>
   </div>
 </nav>
-<p style="color: green"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 <div id="categories">
   <% @categories.each do |category| %>
-    <a href="<%= category_icome_transactions_path(category) %>" >
+    <a href="<%= category_icome_transactions_path(category) %>", class="links" >
     <%= render category %>
     </a>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path, class: 'btn btn-outline-dark btn-sm mt-2 float-start' %>
+<div class="bottom-btn">
+<%= link_to "New category", new_category_path, class: 'category-btn' %>
+</div>

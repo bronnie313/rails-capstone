@@ -1,17 +1,13 @@
-<div id="<%= dom_id category %>">
-   <p>
+<div id="<%= dom_id category %>",  class="category">
     <% if category.icon.present? %>
         <img src="<%= category.icon %>" alt="Icon">
     <% end %>
-  </p>
-  <p>
-    <strong>Name:</strong>
+    
+    <p class="name">
     <%= category.name %>
-  </p>
+    </p>
 
-  <p>
-    Total Income for this Category: $
+    <p class="income">$ 
     <%= category.icome_transactions.sum(:amount) %>
-  </p>
-
+    </p>
 </div>

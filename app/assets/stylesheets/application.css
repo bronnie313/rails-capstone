@@ -1,18 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  height: 100%;
+  background: #f0f2f1;
+}
 
 .back-btn {
   color: white;
@@ -20,8 +14,99 @@
 }
 
 img {
-  width: 3em;
-  border: 1px solid black;
+  font-size: 2rem;
+  border: 0.2px solid lightgray;
   padding: 3px;
-  border-radius: 4rem;
+  border-radius: 2px;
+  width: 4rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;
+  background: #3674bd;
+  color: white;
+}
+
+.category {
+  border: 0.5px solid lightgray;
+  border-radius: 1px;
+  padding: 1rem;
+  display: grid;
+  align-items: center;
+  gap: 13px;
+  margin: 1rem;
+  grid-template-columns: 0.5fr 1.5fr 0.5fr;
+  background-color: white;
+}
+
+.logout {
+  color: white;
+  border: 1px solid white;
+}
+
+.links {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.notice {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 4rem;
+  color: white;
+  border: 1px solid gray;
+  background: #60b524;
+  padding: 4px;
+  border-radius: 21px;
+}
+
+.bottom-btn {
+  border: 1px solid lightgray;
+  padding: 1rem;
+  background: #5fb523;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.category-btn {
+  color: white;
+  width: 100%;
+  font-size: 1.5em;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+.title {
+  margin: 0;
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.income {
+  margin: 0;
+  color: #435b54;
+  font-weight: 800;
+}
+
+.name {
+  margin: 0;
+  color: #989da3;
+  margin-left: 10px;
+  font-size: 1.3em;
+  font-family: unset;
+}
+
+.total-transaction-income {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: white;
 }
