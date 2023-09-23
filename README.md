@@ -163,9 +163,11 @@ Example command:
 ```sh
   bin/rails test test/models/article_test.rb
 ```
+--->
+
 ### Deployment
 
-You can deploy this project using: 
+You can deploy this project using: `https://github.com/bronnie313/rails-capstone.git`
 
 <!--
 Example:
