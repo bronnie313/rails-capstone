@@ -1,0 +1,18 @@
+<nav id="nav">
+  <div class="nav-list">
+     <i class="fa-solid fa-bars back-btn"></i>
+    <h1 class="title">Categories</h1>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm float-start logout' %>
+  </div>
+</nav>
+<p class="notice"><%= notice %></p>
+<div id="categories">
+  <% @categories.each do |category| %>
+    <a href="<%= category_icome_transactions_path(category) %>", class="links" >
+    <%= render category %>
+    </a>
+  <% end %>
+</div>
+<div class="bottom-btn">
+<%= link_to "New category", new_category_path, class: 'category-btn' %>
+</div>

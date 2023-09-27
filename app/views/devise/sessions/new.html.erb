@@ -1,0 +1,25 @@
+<nav id="nav">
+  <div class="nav-list">
+    <a href="<%= root_path %>" class="back-btn">
+      <i class="fa-solid fa-chevron-left"></i> 
+    </a>  
+    <h1 class="title">Login</h1>
+    <%= link_to "Log in", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light btn-sm float-start logout' %>
+  </div>
+</nav>
+<div class="login-page">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'signup-form' }) do |f| %>
+  <div class="field">
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email",  class: "login_filed" %>
+  </div>
+  <hr>
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password",  class: "login_filed" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'login' %>
+  </div>
+<% end %>
+</div>
